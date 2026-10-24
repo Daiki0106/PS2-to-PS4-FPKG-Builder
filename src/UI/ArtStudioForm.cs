@@ -322,7 +322,6 @@ namespace PS2toPS4Builder.UI
             picBg.Image = _bgBitmap;
 
             btnSaveIcon.Enabled = true;
-            btnSaveDisc.Enabled = true;
             btnSaveBg.Enabled = true;
             btnSaveBoth.Enabled = true;
         }
@@ -358,16 +357,6 @@ namespace PS2toPS4Builder.UI
 
         private void btnSaveIcon_Click(object sender, EventArgs e)
         {
-            SaveIconInternal(false);
-        }
-
-        private void btnSaveDisc_Click(object sender, EventArgs e)
-        {
-            SaveIconInternal(true);
-        }
-
-        private void SaveIconInternal(bool asDisc)
-        {
             if (_iconBitmap == null)
             {
                 MessageBox.Show("Primero pega o carga una imagen.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -375,7 +364,8 @@ namespace PS2toPS4Builder.UI
             }
 
             string folder = EnsureTargetFolder();
-            string fileName = "icon0.png";
+            string serial = !string.IsNullOrEmpty(txtGameName.Text.Trim()) ? txtGameName.Text.Trim() : "custom";
+            string fileName = string.Format("{0}_studio_icon0.png", FormatHelper.SanitizeFileName(serial));
             string targetPath = Path.Combine(folder, fileName);
 
             try
@@ -402,7 +392,8 @@ namespace PS2toPS4Builder.UI
             }
 
             string folder = EnsureTargetFolder();
-            string fileName = "pic1.png";
+            string serial = !string.IsNullOrEmpty(txtGameName.Text.Trim()) ? txtGameName.Text.Trim() : "custom";
+            string fileName = string.Format("{0}_studio_pic1.png", FormatHelper.SanitizeFileName(serial));
             string targetPath = Path.Combine(folder, fileName);
 
             try
@@ -429,8 +420,10 @@ namespace PS2toPS4Builder.UI
             }
 
             string folder = EnsureTargetFolder();
-            string iconName = "icon0.png";
-            string bgName = "pic1.png";
+            string serial = !string.IsNullOrEmpty(txtGameName.Text.Trim()) ? txtGameName.Text.Trim() : "custom";
+            string cleanSerial = FormatHelper.SanitizeFileName(serial);
+            string iconName = string.Format("{0}_studio_icon0.png", cleanSerial);
+            string bgName = string.Format("{0}_studio_pic1.png", cleanSerial);
 
             try
             {
@@ -444,8 +437,11 @@ namespace PS2toPS4Builder.UI
                 SavedBgPath = bgPath;
                 SavedArtwork = true;
 
-                lblStatus.Text = "¡Guardados exitosamente icon0.png y pic1.png para PS4!";
+                lblStatus.Text = "¡Arte guardado exitosamente!";
                 lblStatus.ForeColor = Color.LightGreen;
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             catch (Exception ex)
             {
