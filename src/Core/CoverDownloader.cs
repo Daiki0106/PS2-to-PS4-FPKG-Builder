@@ -264,10 +264,10 @@ namespace PS2toPS4Builder.Core
         {
             if (string.IsNullOrEmpty(serial)) return "";
             string clean = serial.Trim().ToUpper();
-            Match m = Regex.Match(clean, @"([A-Z]{4})[-_]?(\d{5})");
+            Match m = Regex.Match(clean, @"([A-Z]{4})[-_]?(\d{3})\.?(\d{2})");
             if (m.Success)
             {
-                return string.Format("{0}-{1}", m.Groups[1].Value, m.Groups[2].Value);
+                return string.Format("{0}-{1}{2}", m.Groups[1].Value, m.Groups[2].Value, m.Groups[3].Value);
             }
             return clean;
         }

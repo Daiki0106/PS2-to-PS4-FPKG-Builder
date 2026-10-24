@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Security;
 using System.Text;
 
 namespace PS2toPS4Builder.Core
@@ -9,6 +10,10 @@ namespace PS2toPS4Builder.Core
     {
         public static string GenerateSfoXml(string titleId, string gameTitle, string contentId)
         {
+            string safeTitle = SecurityElement.Escape(gameTitle ?? "");
+            string safeTitleId = SecurityElement.Escape(titleId ?? "");
+            string safeContentId = SecurityElement.Escape(contentId ?? "");
+
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>");
             sb.AppendLine("<paramsfo>");
@@ -16,14 +21,14 @@ namespace PS2toPS4Builder.Core
             sb.AppendLine("  <param key=\"APP_VER\">01.00</param>");
             sb.AppendLine("  <param key=\"ATTRIBUTE\">0</param>");
             sb.AppendLine("  <param key=\"CATEGORY\">gd</param>");
-            sb.AppendLine(string.Format("  <param key=\"CONTENT_ID\">{0}</param>", contentId));
+            sb.AppendLine(string.Format("  <param key=\"CONTENT_ID\">{0}</param>", safeContentId));
             sb.AppendLine("  <param key=\"DOWNLOAD_DATA_SIZE\">0</param>");
             sb.AppendLine("  <param key=\"FORMAT\">obs</param>");
             sb.AppendLine("  <param key=\"PARENTAL_LEVEL\">5</param>");
             sb.AppendLine("  <param key=\"REMOTE_PLAY_KEY_ASSIGN\">1</param>");
             sb.AppendLine("  <param key=\"SYSTEM_VER\">0</param>");
-            sb.AppendLine(string.Format("  <param key=\"TITLE\">{0}</param>", gameTitle));
-            sb.AppendLine(string.Format("  <param key=\"TITLE_ID\">{0}</param>", titleId));
+            sb.AppendLine(string.Format("  <param key=\"TITLE\">{0}</param>", safeTitle));
+            sb.AppendLine(string.Format("  <param key=\"TITLE_ID\">{0}</param>", safeTitleId));
             sb.AppendLine("  <param key=\"VERSION\">01.00</param>");
             sb.AppendLine("</paramsfo>");
             return sb.ToString();

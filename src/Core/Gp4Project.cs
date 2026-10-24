@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Security;
 using System.Text;
 
 namespace PS2toPS4Builder.Core
@@ -15,7 +16,7 @@ namespace PS2toPS4Builder.Core
             sb.AppendLine("    <volume_type>pkg_ps4_app</volume_type>");
             sb.AppendLine("    <volume_id>PS4VOLUME</volume_id>");
             sb.AppendLine("    <package_sub_type>0</package_sub_type>");
-            sb.AppendLine(string.Format("    <content_id>{0}</content_id>", contentId));
+            sb.AppendLine(string.Format("    <content_id>{0}</content_id>", SecurityElement.Escape(contentId ?? "")));
             sb.AppendLine("    <passcode>00000000000000000000000000000000</passcode>");
             sb.AppendLine("  </volume>");
             sb.AppendLine("  <files>");
@@ -26,7 +27,9 @@ namespace PS2toPS4Builder.Core
                 string relativePath = file.Substring(stagingDirectory.Length).TrimStart(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
                 string targetPath = relativePath.Replace('\\', '/');
 
-                sb.AppendLine(string.Format("    <file targpath=\"{0}\" origpath=\"{1}\" />", targetPath, file));
+                sb.AppendLine(string.Format("    <file targpath=\"{0}\" origpath=\"{1}\" />", 
+                    SecurityElement.Escape(targetPath), 
+                    SecurityElement.Escape(file)));
             }
 
             sb.AppendLine("  </files>");

@@ -59,6 +59,15 @@ namespace PS2toPS4Builder.Core
             if (_titles.ContainsKey(serial))
                 return _titles[serial];
 
+            // Probar formato con guion estándar: XXXX-YYYYY
+            Match m = Regex.Match(serial.Trim().ToUpper(), @"([A-Z]{4})[-_]?(\d{3})\.?(\d{2})");
+            if (m.Success)
+            {
+                string withDash = string.Format("{0}-{1}{2}", m.Groups[1].Value, m.Groups[2].Value, m.Groups[3].Value);
+                if (_titles.ContainsKey(withDash))
+                    return _titles[withDash];
+            }
+
             string normalized = serial.Replace("-", "_");
             if (_titles.ContainsKey(normalized))
                 return _titles[normalized];

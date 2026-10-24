@@ -122,21 +122,8 @@ namespace PS2toPS4Builder.Core
                 }
                 else
                 {
-                    // Si el archivo ya es una extracción temporal en la misma unidad (%TEMP%),
-                    // hacemos File.Move instantáneo en 0.01s en vez de duplicar 4 GB en disco
-                    string srcRoot = Path.GetPathRoot(Path.GetFullPath(options.IsoPath));
-                    string dstRoot = Path.GetPathRoot(Path.GetFullPath(destIsoPath));
-
-                    if (isTempExtracted && srcRoot.Equals(dstRoot, StringComparison.OrdinalIgnoreCase))
-                    {
-                        TriggerLog("[INFO] Optimizando: Moviendo imagen temporal al paquete (0 MB duplicados)...");
-                        File.Move(options.IsoPath, destIsoPath);
-                    }
-                    else
-                    {
-                        TriggerLog("[INFO] Copiando imagen ISO al paquete (image/disc01.iso)...");
-                        File.Copy(options.IsoPath, destIsoPath, true);
-                    }
+                    TriggerLog("[INFO] Copiando imagen ISO al paquete (image/disc01.iso)...");
+                    File.Copy(options.IsoPath, destIsoPath, true);
                 }
 
                 TriggerProgress(35);
@@ -238,6 +225,12 @@ namespace PS2toPS4Builder.Core
                 TriggerProgress(55);
 
                 // 8. Compilar con orbis-pub-cmd
+                string outDir = Path.GetDirectoryName(options.OutputPkgPath);
+                if (!string.IsNullOrEmpty(outDir) && !Directory.Exists(outDir))
+                {
+                    try { Directory.CreateDirectory(outDir); } catch { }
+                }
+
                 TriggerLog("[INFO] Compilando imagen PKG final...");
                 bool buildSuccess = RunOrbisPubCmd(options.OrbisToolPath, gp4Path, options.OutputPkgPath);
 
