@@ -1,0 +1,16 @@
+PLANTILLA DEL EMULADOR BASE DE PS2 PARA PS4
+============================================
+
+En esta carpeta se colocan los archivos del emulador oficial extraido de cualquier
+juego oficial de PS2 Classics para PS4 (por ejemplo Jak and Daxter, Star Wars Bounty Hunter, etc.).
+
+Estructura minima esperada:
+- eboot.bin                (Binario del emulador de PS2 para PS4)
+- sce_sys/
+  - icon0.png              (Icono por defecto si el usuario no pone uno)
+  - pic1.png               (Fondo por defecto si el usuario no pone uno)
+  - param.sfo              (SFO base del emulador)
+- config-emu-ps4.txt       (Archivo base de argumentos del emulador)
+
+Nota: El programa creara automaticamente la carpeta 'image/disc01.iso' colocando la ISO
+del juego seleccionado por el usuario.

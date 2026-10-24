@@ -1,0 +1,20 @@
+# Visual Studio y .NET
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+*.old
+*.bak
+
+# Cache de carátulas descargadas y temporales
+cache/*
+!cache/.gitkeep
+temp/
+*.tmp
+*.log
+
+# Archivos compilados temporales
+*.pdb

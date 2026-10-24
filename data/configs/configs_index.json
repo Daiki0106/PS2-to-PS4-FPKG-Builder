@@ -1,0 +1,878 @@
+{
+  "SCAJ-20016": {
+    "txt": "SCAJ-20016.txt",
+    "original_name": "SCAJ_200.16"
+  },
+  "SCAJ-20104": {
+    "txt": "SCAJ-20104.txt",
+    "original_name": "SCAJ_201.04",
+    "lua": "SCAJ-20104.lua"
+  },
+  "SCAJ-20129": {
+    "txt": "SCAJ-20129.txt",
+    "original_name": "SCAJ_201.29"
+  },
+  "SCAJ-20173": {
+    "txt": "SCAJ-20173.txt",
+    "original_name": "SCAJ_201.73"
+  },
+  "SCES-50246": {
+    "txt": "SCES-50246.txt",
+    "original_name": "SCES_502.46"
+  },
+  "SCES-50354": {
+    "txt": "SCES-50354.txt",
+    "original_name": "SCES_503.54"
+  },
+  "SCES-50410": {
+    "txt": "SCES-50410.txt",
+    "original_name": "SCES_504.10"
+  },
+  "SCES-50885": {
+    "txt": "SCES-50885.txt",
+    "original_name": "SCES_508.85"
+  },
+  "SCES-51102": {
+    "txt": "SCES-51102.txt",
+    "original_name": "SCES_511.02"
+  },
+  "SCES-51103": {
+    "txt": "SCES-51103.txt",
+    "original_name": "SCES_511.03"
+  },
+  "SCES-51104": {
+    "txt": "SCES-51104.txt",
+    "original_name": "SCES_511.04"
+  },
+  "SCES-51105": {
+    "txt": "SCES-51105.txt",
+    "original_name": "SCES_511.05"
+  },
+  "SCES-51159": {
+    "txt": "SCES-51159.txt",
+    "original_name": "SCES_511.59"
+  },
+  "SCES-51426": {
+    "txt": "SCES-51426.txt",
+    "original_name": "SCES_514.26"
+  },
+  "SCES-52424": {
+    "txt": "SCES-52424.txt",
+    "original_name": "SCES_524.24",
+    "lua": "SCES-52424.lua"
+  },
+  "SCES-52758": {
+    "txt": "SCES-52758.txt",
+    "original_name": "SCES_527.58"
+  },
+  "SCES-54041": {
+    "txt": "SCES-54041.txt",
+    "original_name": "SCES_540.41",
+    "lua": "SCES-54041.lua"
+  },
+  "SCKA-20016": {
+    "txt": "SCKA-20016.txt",
+    "original_name": "SCKA_200.16"
+  },
+  "SCKA-20058": {
+    "txt": "SCKA-20058.txt",
+    "original_name": "SCKA_200.58"
+  },
+  "SCKA-20070": {
+    "txt": "SCKA-20070.txt",
+    "original_name": "SCKA_200.70"
+  },
+  "SCKA-20079": {
+    "txt": "SCKA-20079.txt",
+    "original_name": "SCKA_200.79"
+  },
+  "SCKA-20082": {
+    "txt": "SCKA-20082.txt",
+    "original_name": "SCKA_200.82",
+    "lua": "SCKA-20082.lua"
+  },
+  "SCKA-20090": {
+    "txt": "SCKA-20090.txt",
+    "original_name": "SCKA_200.90"
+  },
+  "SCKA-20101": {
+    "txt": "SCKA-20101.txt",
+    "original_name": "SCKA_201.01"
+  },
+  "SCKA-20119": {
+    "txt": "SCKA-20119.txt",
+    "original_name": "SCKA_201.19"
+  },
+  "SCPS-15025": {
+    "txt": "SCPS-15025.txt",
+    "original_name": "SCPS_150.25"
+  },
+  "SCPS-19152": {
+    "txt": "SCPS-19152.txt",
+    "original_name": "SCPS_191.52"
+  },
+  "SCPS-19308": {
+    "txt": "SCPS-19308.txt",
+    "original_name": "SCPS_193.08"
+  },
+  "SCUS-97399": {
+    "txt": "SCUS-97399.txt",
+    "original_name": "SCUS_973.99",
+    "lua": "SCUS-97399.lua"
+  },
+  "SCUS-97481": {
+    "txt": "SCUS-97481.txt",
+    "original_name": "SCUS_974.81",
+    "lua": "SCUS-97481.lua"
+  },
+  "SLES-50432": {
+    "txt": "SLES-50432.txt",
+    "original_name": "SLES_504.32"
+  },
+  "SLES-50672": {
+    "txt": "SLES-50672.txt",
+    "original_name": "SLES_506.72"
+  },
+  "SLES-50731": {
+    "txt": "SLES-50731.txt",
+    "original_name": "SLES_507.31"
+  },
+  "SLES-51189": {
+    "txt": "SLES-51189.txt",
+    "original_name": "SLES_511.89"
+  },
+  "SLES-51445": {
+    "txt": "SLES-51445.txt",
+    "original_name": "SLES_514.45"
+  },
+  "SLES-51479": {
+    "txt": "SLES-51479.txt",
+    "original_name": "SLES_514.79"
+  },
+  "SLES-51481": {
+    "txt": "SLES-51481.txt",
+    "original_name": "SLES_514.81"
+  },
+  "SLES-51511": {
+    "txt": "SLES-51511.txt",
+    "original_name": "SLES_515.11"
+  },
+  "SLES-51753": {
+    "txt": "SLES-51753.txt",
+    "original_name": "SLES_517.53"
+  },
+  "SLES-51754": {
+    "txt": "SLES-51754.txt",
+    "original_name": "SLES_517.54"
+  },
+  "SLES-51799": {
+    "txt": "SLES-51799.txt",
+    "original_name": "SLES_517.99"
+  },
+  "SLES-51823": {
+    "txt": "SLES-51823.txt",
+    "original_name": "SLES_518.23"
+  },
+  "SLES-51877": {
+    "txt": "SLES-51877.txt",
+    "original_name": "SLES_518.77"
+  },
+  "SLES-51954": {
+    "txt": "SLES-51954.txt",
+    "original_name": "SLES_519.54"
+  },
+  "SLES-51958": {
+    "txt": "SLES-51958.txt",
+    "original_name": "SLES_519.58"
+  },
+  "SLES-51968": {
+    "txt": "SLES-51968.txt",
+    "original_name": "SLES_519.68"
+  },
+  "SLES-52095": {
+    "txt": "SLES-52095.txt",
+    "original_name": "SLES_520.95"
+  },
+  "SLES-52278": {
+    "txt": "SLES-52278.txt",
+    "original_name": "SLES_522.78"
+  },
+  "SLES-52279": {
+    "txt": "SLES-52279.txt",
+    "original_name": "SLES_522.79"
+  },
+  "SLES-52280": {
+    "txt": "SLES-52280.txt",
+    "original_name": "SLES_522.80"
+  },
+  "SLES-52281": {
+    "txt": "SLES-52281.txt",
+    "original_name": "SLES_522.81"
+  },
+  "SLES-52282": {
+    "txt": "SLES-52282.txt",
+    "original_name": "SLES_522.82"
+  },
+  "SLES-52341": {
+    "txt": "SLES-52341.txt",
+    "original_name": "SLES_523.41"
+  },
+  "SLES-52570": {
+    "txt": "SLES-52570.txt",
+    "original_name": "SLES_525.70"
+  },
+  "SLES-52670": {
+    "txt": "SLES-52670.txt",
+    "original_name": "SLES_526.70"
+  },
+  "SLES-52963": {
+    "txt": "SLES-52963.txt",
+    "original_name": "SLES_529.63"
+  },
+  "SLES-53065": {
+    "txt": "SLES-53065.txt",
+    "original_name": "SLES_530.65"
+  },
+  "SLES-53366": {
+    "txt": "SLES-53366.txt",
+    "original_name": "SLES_533.66"
+  },
+  "SLES-53481": {
+    "txt": "SLES-53481.txt",
+    "original_name": "SLES_534.81"
+  },
+  "SLES-53524": {
+    "txt": "SLES-53524.txt",
+    "original_name": "SLES_535.24"
+  },
+  "SLES-53525": {
+    "txt": "SLES-53525.txt",
+    "original_name": "SLES_535.25"
+  },
+  "SLES-53974": {
+    "txt": "SLES-53974.txt",
+    "original_name": "SLES_539.74"
+  },
+  "SLES-54085": {
+    "txt": "SLES-54085.txt",
+    "original_name": "SLES_540.85"
+  },
+  "SLES-54138": {
+    "txt": "SLES-54138.txt",
+    "original_name": "SLES_541.38"
+  },
+  "SLES-54164": {
+    "txt": "SLES-54164.txt",
+    "original_name": "SLES_541.64"
+  },
+  "SLES-54308": {
+    "txt": "SLES-54308.txt",
+    "original_name": "SLES_543.08"
+  },
+  "SLES-54322": {
+    "txt": "SLES-54322.txt",
+    "original_name": "SLES_543.22"
+  },
+  "SLES-54335": {
+    "txt": "SLES-54335.txt",
+    "original_name": "SLES_543.35"
+  },
+  "SLES-54454": {
+    "txt": "SLES-54454.txt",
+    "original_name": "SLES_544.54"
+  },
+  "SLES-54490": {
+    "txt": "SLES-54490.txt",
+    "original_name": "SLES_544.90"
+  },
+  "SLES-54644": {
+    "txt": "SLES-54644.txt",
+    "original_name": "SLES_546.44"
+  },
+  "SLES-54945": {
+    "txt": "SLES-54945.txt",
+    "original_name": "SLES_549.45"
+  },
+  "SLES-55280": {
+    "txt": "SLES-55280.txt",
+    "original_name": "SLES_552.80",
+    "lua": "SLES-55280.lua"
+  },
+  "SLES-55367": {
+    "txt": "SLES-55367.txt",
+    "original_name": "SLES_553.67"
+  },
+  "SLKA-15032": {
+    "txt": "SLKA-15032.txt",
+    "original_name": "SLKA_150.32"
+  },
+  "SLKA-25027": {
+    "txt": "SLKA-25027.txt",
+    "original_name": "SLKA_250.27"
+  },
+  "SLKA-25130": {
+    "txt": "SLKA-25130.txt",
+    "original_name": "SLKA_251.30"
+  },
+  "SLKA-25261": {
+    "txt": "SLKA-25261.txt",
+    "original_name": "SLKA_252.61"
+  },
+  "SLKA-25407": {
+    "txt": "SLKA-25407.txt",
+    "original_name": "SLKA_254.07"
+  },
+  "SLKA-25449": {
+    "txt": "SLKA-25449.txt",
+    "original_name": "SLKA_254.49"
+  },
+  "SLPM-47642": {
+    "txt": "SLPM-47642.txt",
+    "original_name": "SLPM_476.42"
+  },
+  "SLPM-55001": {
+    "txt": "SLPM-55001.txt",
+    "original_name": "SLPM_550.01"
+  },
+  "SLPM-62462": {
+    "txt": "SLPM-62462.txt",
+    "original_name": "SLPM_624.62"
+  },
+  "SLPM-62621": {
+    "txt": "SLPM-62621.txt",
+    "original_name": "SLPM_626.21"
+  },
+  "SLPM-65190": {
+    "txt": "SLPM-65190.txt",
+    "original_name": "SLPM_651.90"
+  },
+  "SLPM-65499": {
+    "txt": "SLPM-65499.txt",
+    "original_name": "SLPM_654.99"
+  },
+  "SLPM-65580": {
+    "txt": "SLPM-65580.txt",
+    "original_name": "SLPM_655.80"
+  },
+  "SLPM-65649": {
+    "txt": "SLPM-65649.txt",
+    "original_name": "SLPM_656.49"
+  },
+  "SLPM-65802": {
+    "txt": "SLPM-65802.txt",
+    "original_name": "SLPM_658.02"
+  },
+  "SLPM-65826": {
+    "txt": "SLPM-65826.txt",
+    "original_name": "SLPM_658.26"
+  },
+  "SLPM-65888": {
+    "txt": "SLPM-65888.txt",
+    "original_name": "SLPM_658.88"
+  },
+  "SLPM-65947": {
+    "txt": "SLPM-65947.txt",
+    "original_name": "SLPM_659.47"
+  },
+  "SLPM-65998": {
+    "txt": "SLPM-65998.txt",
+    "original_name": "SLPM_659.98"
+  },
+  "SLPM-66031": {
+    "txt": "SLPM-66031.txt",
+    "original_name": "SLPM_660.31"
+  },
+  "SLPM-66067": {
+    "txt": "SLPM-66067.txt",
+    "original_name": "SLPM_660.67"
+  },
+  "SLPM-66409": {
+    "txt": "SLPM-66409.txt",
+    "original_name": "SLPM_664.09"
+  },
+  "SLPM-66419": {
+    "txt": "SLPM-66419.txt",
+    "original_name": "SLPM_664.19"
+  },
+  "SLPM-66468": {
+    "txt": "SLPM-66468.txt",
+    "original_name": "SLPM_664.68"
+  },
+  "SLPM-66481": {
+    "txt": "SLPM-66481.txt",
+    "original_name": "SLPM_664.81"
+  },
+  "SLPM-66550": {
+    "txt": "SLPM-66550.txt",
+    "original_name": "SLPM_665.50"
+  },
+  "SLPM-66599": {
+    "txt": "SLPM-66599.txt",
+    "original_name": "SLPM_665.99"
+  },
+  "SLPM-66637": {
+    "txt": "SLPM-66637.txt",
+    "original_name": "SLPM_666.37"
+  },
+  "SLPM-66744": {
+    "txt": "SLPM-66744.txt",
+    "original_name": "SLPM_667.44"
+  },
+  "SLPM-66782": {
+    "txt": "SLPM-66782.txt",
+    "original_name": "SLPM_667.82"
+  },
+  "SLPM-66854": {
+    "txt": "SLPM-66854.txt",
+    "original_name": "SLPM_668.54"
+  },
+  "SLPM-74241": {
+    "txt": "SLPM-74241.txt",
+    "original_name": "SLPM_742.41"
+  },
+  "SLPM-74244": {
+    "txt": "SLPM-74244.txt",
+    "original_name": "SLPM_742.44"
+  },
+  "SLPS-25479": {
+    "txt": "SLPS-25479.txt",
+    "original_name": "SLPS-25479"
+  },
+  "SLPS-25052": {
+    "txt": "SLPS-25052.txt",
+    "original_name": "SLPS_250.52"
+  },
+  "SLPS-25139": {
+    "txt": "SLPS-25139.txt",
+    "original_name": "SLPS_251.39"
+  },
+  "SLPS-25140": {
+    "txt": "SLPS-25140.txt",
+    "original_name": "SLPS_251.40"
+  },
+  "SLPS-25230": {
+    "txt": "SLPS-25230.txt",
+    "original_name": "SLPS_252.30"
+  },
+  "SLPS-25239": {
+    "txt": "SLPS-25239.txt",
+    "original_name": "SLPS_252.39"
+  },
+  "SLPS-25275": {
+    "txt": "SLPS-25275.txt",
+    "original_name": "SLPS_252.75"
+  },
+  "SLPS-25291": {
+    "txt": "SLPS-25291.txt",
+    "original_name": "SLPS_252.91"
+  },
+  "SLPS-25316": {
+    "txt": "SLPS-25316.txt",
+    "original_name": "SLPS_253.16"
+  },
+  "SLPS-25418": {
+    "txt": "SLPS-25418.txt",
+    "original_name": "SLPS_254.18",
+    "lua": "SLPS-25418.lua"
+  },
+  "SLPS-25457": {
+    "txt": "SLPS-25457.txt",
+    "original_name": "SLPS_254.57"
+  },
+  "SLPS-25484": {
+    "txt": "SLPS-25484.txt",
+    "original_name": "SLPS_254.84"
+  },
+  "SLPS-25525": {
+    "txt": "SLPS-25525.txt",
+    "original_name": "SLPS_255.25",
+    "lua": "SLPS-25525.lua"
+  },
+  "SLPS-25559": {
+    "txt": "SLPS-25559.txt",
+    "original_name": "SLPS_255.59"
+  },
+  "SLPS-25607": {
+    "txt": "SLPS-25607.txt",
+    "original_name": "SLPS_256.07"
+  },
+  "SLPS-25608": {
+    "txt": "SLPS-25608.txt",
+    "original_name": "SLPS_256.08"
+  },
+  "SLPS-25629": {
+    "txt": "SLPS-25629.txt",
+    "original_name": "SLPS_256.29"
+  },
+  "SLPS-25683": {
+    "txt": "SLPS-25683.txt",
+    "original_name": "SLPS_256.83"
+  },
+  "SLPS-25690": {
+    "txt": "SLPS-25690.txt",
+    "original_name": "SLPS_256.90"
+  },
+  "SLPS-25736": {
+    "txt": "SLPS-25736.txt",
+    "original_name": "SLPS_257.36"
+  },
+  "SLPS-25783": {
+    "txt": "SLPS-25783.txt",
+    "original_name": "SLPS_257.83",
+    "lua": "SLPS-25783.lua"
+  },
+  "SLPS-25815": {
+    "txt": "SLPS-25815.txt",
+    "original_name": "SLPS_258.15"
+  },
+  "SLPS-25841": {
+    "txt": "SLPS-25841.txt",
+    "original_name": "SLPS_258.41"
+  },
+  "SLPS-25842": {
+    "txt": "SLPS-25842.txt",
+    "original_name": "SLPS_258.42"
+  },
+  "SLPS-25854": {
+    "txt": "SLPS-25854.txt",
+    "original_name": "SLPS_258.54"
+  },
+  "SLPS-25915": {
+    "txt": "SLPS-25915.txt",
+    "original_name": "SLPS_259.15",
+    "lua": "SLPS-25915.lua"
+  },
+  "SLPS-25983": {
+    "txt": "SLPS-25983.txt",
+    "original_name": "SLPS_259.83",
+    "lua": "SLPS-25983.lua"
+  },
+  "SLPS-28542": {
+    "txt": "SLPS-28542.txt",
+    "original_name": "SLPS_285.42"
+  },
+  "SLPS-73218": {
+    "txt": "SLPS-73218.txt",
+    "original_name": "SLPS_732.18",
+    "lua": "SLPS-73218.lua"
+  },
+  "SLPS-73250": {
+    "txt": "SLPS-73250.txt",
+    "original_name": "SLPS_732.50"
+  },
+  "SLPS-73254": {
+    "txt": "SLPS-73254.txt",
+    "original_name": "SLPS_732.54"
+  },
+  "SLUS-21254": {
+    "txt": "SLUS-21254.txt",
+    "original_name": "SLUS-21254"
+  },
+  "SLUS-20013": {
+    "txt": "SLUS-20013.txt",
+    "original_name": "SLUS_200.13"
+  },
+  "SLUS-20035": {
+    "txt": "SLUS-20035.txt",
+    "original_name": "SLUS_200.35"
+  },
+  "SLUS-20152": {
+    "txt": "SLUS-20152.txt",
+    "original_name": "SLUS_201.52"
+  },
+  "SLUS-20179": {
+    "txt": "SLUS-20179.txt",
+    "original_name": "SLUS_201.79"
+  },
+  "SLUS-20346": {
+    "txt": "SLUS-20346.txt",
+    "original_name": "SLUS_203.46"
+  },
+  "SLUS-20362": {
+    "txt": "SLUS-20362.txt",
+    "original_name": "SLUS_203.62"
+  },
+  "SLUS-20471": {
+    "txt": "SLUS-20471.txt",
+    "original_name": "SLUS_204.71"
+  },
+  "SLUS-20511": {
+    "txt": "SLUS-20511.txt",
+    "original_name": "SLUS_205.11"
+  },
+  "SLUS-20550": {
+    "txt": "SLUS-20550.txt",
+    "original_name": "SLUS_205.50"
+  },
+  "SLUS-20595": {
+    "txt": "SLUS-20595.txt",
+    "original_name": "SLUS_205.95"
+  },
+  "SLUS-20604": {
+    "txt": "SLUS-20604.txt",
+    "original_name": "SLUS_206.04"
+  },
+  "SLUS-20639": {
+    "txt": "SLUS-20639.txt",
+    "original_name": "SLUS_206.39"
+  },
+  "SLUS-20643": {
+    "txt": "SLUS-20643.txt",
+    "original_name": "SLUS_206.43"
+  },
+  "SLUS-20649": {
+    "txt": "SLUS-20649.txt",
+    "original_name": "SLUS_206.49"
+  },
+  "SLUS-20651": {
+    "txt": "SLUS-20651.txt",
+    "original_name": "SLUS_206.51"
+  },
+  "SLUS-20671": {
+    "txt": "SLUS-20671.txt",
+    "original_name": "SLUS_206.71"
+  },
+  "SLUS-20680": {
+    "txt": "SLUS-20680.txt",
+    "original_name": "SLUS_206.80"
+  },
+  "SLUS-20684": {
+    "txt": "SLUS-20684.txt",
+    "original_name": "SLUS_206.84"
+  },
+  "SLUS-20685": {
+    "txt": "SLUS-20685.txt",
+    "original_name": "SLUS_206.85"
+  },
+  "SLUS-20712": {
+    "txt": "SLUS-20712.txt",
+    "original_name": "SLUS_207.12"
+  },
+  "SLUS-20795": {
+    "txt": "SLUS-20795.txt",
+    "original_name": "SLUS_207.95"
+  },
+  "SLUS-20814": {
+    "txt": "SLUS-20814.txt",
+    "original_name": "SLUS_208.14"
+  },
+  "SLUS-20845": {
+    "txt": "SLUS-20845.txt",
+    "original_name": "SLUS_208.45"
+  },
+  "SLUS-20851": {
+    "txt": "SLUS-20851.txt",
+    "original_name": "SLUS_208.51",
+    "lua": "SLUS-20851.lua"
+  },
+  "SLUS-21033": {
+    "txt": "SLUS-21033.txt",
+    "original_name": "SLUS_210.33"
+  },
+  "SLUS-21087": {
+    "txt": "SLUS-21087.txt",
+    "original_name": "SLUS_210.87"
+  },
+  "SLUS-21098": {
+    "txt": "SLUS-21098.txt",
+    "original_name": "SLUS_210.98"
+  },
+  "SLUS-21154": {
+    "txt": "SLUS-21154.txt",
+    "original_name": "SLUS_211.54"
+  },
+  "SLUS-21194": {
+    "txt": "SLUS-21194.txt",
+    "original_name": "SLUS_211.94"
+  },
+  "SLUS-21207": {
+    "txt": "SLUS-21207.txt",
+    "original_name": "SLUS_212.07"
+  },
+  "SLUS-21317": {
+    "txt": "SLUS-21317.txt",
+    "original_name": "SLUS_213.17"
+  },
+  "SLUS-21344": {
+    "txt": "SLUS-21344.txt",
+    "original_name": "SLUS_213.44"
+  },
+  "SLUS-21346": {
+    "txt": "SLUS-21346.txt",
+    "original_name": "SLUS_213.46",
+    "lua": "SLUS-21346.lua"
+  },
+  "SLUS-21386": {
+    "txt": "SLUS-21386.txt",
+    "original_name": "SLUS_213.86"
+  },
+  "SLUS-21397": {
+    "txt": "SLUS-21397.txt",
+    "original_name": "SLUS_213.97"
+  },
+  "SLUS-21437": {
+    "txt": "SLUS-21437.txt",
+    "original_name": "SLUS_214.37"
+  },
+  "SLUS-21441": {
+    "txt": "SLUS-21441.txt",
+    "original_name": "SLUS_214.41"
+  },
+  "SLUS-21452": {
+    "txt": "SLUS-21452.txt",
+    "original_name": "SLUS_214.52"
+  },
+  "SLUS-21503": {
+    "txt": "SLUS-21503.txt",
+    "original_name": "SLUS_215.03"
+  },
+  "SLUS-21574": {
+    "txt": "SLUS-21574.txt",
+    "original_name": "SLUS_215.74"
+  },
+  "SLUS-21629": {
+    "txt": "SLUS-21629.txt",
+    "original_name": "SLUS_216.29"
+  },
+  "SLUS-21678": {
+    "txt": "SLUS-21678.txt",
+    "original_name": "SLUS_216.78"
+  },
+  "SLUS-21746": {
+    "txt": "SLUS-21746.txt",
+    "original_name": "SLUS_217.46"
+  },
+  "SLUS-21779": {
+    "txt": "SLUS-21779.txt",
+    "original_name": "SLUS_217.79"
+  },
+  "EMPTY": {
+    "txt": "EMPTY.txt",
+    "original_name": "empty",
+    "lua": "EMPTY.lua"
+  },
+  "SLES-50134": {
+    "lua": "SLES-50134.lua",
+    "original_name": "SLES_501.34"
+  },
+  "SLES-50176": {
+    "lua": "SLES-50176.lua",
+    "original_name": "SLES_501.76"
+  },
+  "SLES-50177": {
+    "lua": "SLES-50177.lua",
+    "original_name": "SLES_501.77"
+  },
+  "SLES-50178": {
+    "lua": "SLES-50178.lua",
+    "original_name": "SLES_501.78"
+  },
+  "SLES-50179": {
+    "lua": "SLES-50179.lua",
+    "original_name": "SLES_501.79"
+  },
+  "SLES-50196": {
+    "lua": "SLES-50196.lua",
+    "original_name": "SLES_501.96"
+  },
+  "SLES-51044": {
+    "lua": "SLES-51044.lua",
+    "original_name": "SLES_510.44"
+  },
+  "SLES-51381": {
+    "lua": "SLES-51381.lua",
+    "original_name": "SLES_513.81"
+  },
+  "SLES-52150": {
+    "lua": "SLES-52150.lua",
+    "original_name": "SLES_521.50"
+  },
+  "SLES-52725": {
+    "lua": "SLES-52725.lua",
+    "original_name": "SLES_527.25"
+  },
+  "SLES-52968": {
+    "lua": "SLES-52968.lua",
+    "original_name": "SLES_529.68"
+  },
+  "SLES-53020": {
+    "lua": "SLES-53020.lua",
+    "original_name": "SLES_530.20"
+  },
+  "SLES-53908": {
+    "lua": "SLES-53908.lua",
+    "original_name": "SLES_539.08"
+  },
+  "SLES-54587": {
+    "lua": "SLES-54587.lua",
+    "original_name": "SLES_545.87"
+  },
+  "SLES-54674": {
+    "lua": "SLES-54674.lua",
+    "original_name": "SLES_546.74"
+  },
+  "SLPM-65766": {
+    "lua": "SLPM-65766.lua",
+    "original_name": "SLPM_657.66"
+  },
+  "SLPM-66051": {
+    "lua": "SLPM-66051.lua",
+    "original_name": "SLPM_660.51"
+  },
+  "SLPS-25606": {
+    "lua": "SLPS-25606.lua",
+    "original_name": "SLPS_256.06"
+  },
+  "SLUS-20064": {
+    "lua": "SLUS-20064.lua",
+    "original_name": "SLUS_200.64"
+  },
+  "SLUS-20071": {
+    "lua": "SLUS-20071.lua",
+    "original_name": "SLUS_200.71"
+  },
+  "SLUS-20174": {
+    "lua": "SLUS-20174.lua",
+    "original_name": "SLUS_201.74"
+  },
+  "SLUS-20497": {
+    "lua": "SLUS-20497.lua",
+    "original_name": "SLUS_204.97"
+  },
+  "SLUS-20598": {
+    "lua": "SLUS-20598.lua",
+    "original_name": "SLUS_205.98"
+  },
+  "SLUS-20721": {
+    "lua": "SLUS-20721.lua",
+    "original_name": "SLUS_207.21"
+  },
+  "SLUS-20773": {
+    "lua": "SLUS-20773.lua",
+    "original_name": "SLUS_207.73"
+  },
+  "SLUS-21062": {
+    "lua": "SLUS-21062.lua",
+    "original_name": "SLUS_210.62"
+  },
+  "SLUS-21065": {
+    "lua": "SLUS-21065.lua",
+    "original_name": "SLUS_210.65"
+  },
+  "SLUS-21203": {
+    "lua": "SLUS-21203.lua",
+    "original_name": "SLUS_212.03"
+  },
+  "SLUS-21307": {
+    "lua": "SLUS-21307.lua",
+    "original_name": "SLUS_213.07"
+  },
+  "SLUS-21501": {
+    "lua": "SLUS-21501.lua",
+    "original_name": "SLUS_215.01"
+  },
+  "SLUS-21555": {
+    "lua": "SLUS-21555.lua",
+    "original_name": "SLUS_215.55"
+  }
+}

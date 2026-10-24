@@ -1,0 +1,10 @@
+COLOCA AQUI LAS HERRAMIENTAS DE COMPILACION DE PS4 (SDK / TOOLS)
+==================================================================
+
+Archivos necesarios en esta carpeta:
+- orbis-pub-cmd.exe
+- orbis-pub-cmd.psarc (si viene en tu version de Fake PKG Tools)
+
+¿Donde conseguirlos?
+Busca en la scene de PS4 las "PS4 Fake PKG Tools" (Orbis Publishing Tools).
+El archivo principal que el programa llama en segundo plano es 'orbis-pub-cmd.exe'.

@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationTitle>PS2 to PS4 PKG Builder</ApplicationTitle>
+    <AssemblyName>PS2toPS4Builder</AssemblyName>
+    <RootNamespace>PS2toPS4Builder</RootNamespace>
+  </PropertyGroup>
+
+</Project>
