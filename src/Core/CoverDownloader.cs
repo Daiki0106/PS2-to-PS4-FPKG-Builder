@@ -108,11 +108,11 @@ namespace PS2toPS4Builder.Core
                 CoverResult res = new CoverResult();
                 string cleanSerial = serial.Replace("-", "_").Replace(".", "_");
 
-                // Generar Icono Cuadrado Ambientado con la Carátula Frontal
+                // Generar Icono Cuadrado 512x512 con Carátula Frontal (Estilo Oficial PS4)
                 if (!string.IsNullOrEmpty(coverFile))
                 {
                     string destCoverIcon = Path.Combine(cacheDirectory, cleanSerial + "_cover_icon0.png");
-                    ImageHelper.CreateSquareIconWithAmbientBackground(coverFile, destCoverIcon);
+                    ImageHelper.CreateSquareIcon(coverFile, destCoverIcon, IconCropStyle.FillSquare);
                     res.SquareIconPath = destCoverIcon;
                     res.RawCoverPath = coverFile;
                 }
@@ -200,7 +200,7 @@ namespace PS2toPS4Builder.Core
 
             try
             {
-                ImageHelper.CreateSquareIconWithAmbientBackground(downloadedPath, icon512Path);
+                ImageHelper.CreateSquareIcon(downloadedPath, icon512Path, IconCropStyle.FillSquare);
             }
             catch
             {

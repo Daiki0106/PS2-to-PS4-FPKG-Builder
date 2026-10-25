@@ -64,6 +64,25 @@ namespace PS2toPS4Builder.UI
 
             // Deseleccionar al hacer clic afuera en cualquier parte de la ventana
             AttachUnfocusClick(this);
+
+            cmbIconStyle.SelectedIndexChanged += cmbIconStyle_SelectedIndexChanged;
+        }
+
+        private IconCropStyle GetCurrentIconStyle()
+        {
+            if (cmbIconStyle.SelectedIndex == 1) return IconCropStyle.FitBlack;
+            if (cmbIconStyle.SelectedIndex == 2) return IconCropStyle.FitAmbient;
+            return IconCropStyle.FillSquare;
+        }
+
+        private void cmbIconStyle_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_sourceImage != null)
+            {
+                if (_iconBitmap != null) _iconBitmap.Dispose();
+                _iconBitmap = StudioImageProcessor.CreateSquareIcon(_sourceImage, 512, GetCurrentIconStyle());
+                picIcon.Image = _iconBitmap;
+            }
         }
 
         private void TextBox_EnterOrEscape_KeyDown(object sender, KeyEventArgs e)
@@ -313,8 +332,8 @@ namespace PS2toPS4Builder.UI
 
             _sourceImage = img;
 
-            // Procesar icono 512x512
-            _iconBitmap = StudioImageProcessor.CreateSquareIcon(_sourceImage, 512, true);
+            // Procesar icono 512x512 según el estilo elegido por el usuario
+            _iconBitmap = StudioImageProcessor.CreateSquareIcon(_sourceImage, 512, GetCurrentIconStyle());
             picIcon.Image = _iconBitmap;
 
             // Procesar fondo panorámico 1920x1080

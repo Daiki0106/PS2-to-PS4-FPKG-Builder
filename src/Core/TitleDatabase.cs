@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
+using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace PS2toPS4Builder.Core
 {
@@ -10,12 +13,14 @@ namespace PS2toPS4Builder.Core
     {
         private static Dictionary<string, string> _titles = null;
         private static Dictionary<string, string> _titleToSerial = null;
+        private static string _savedCsvPath = null;
 
         public static void Initialize(string csvPath)
         {
             if (_titles != null) return;
             _titles = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
             _titleToSerial = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            _savedCsvPath = csvPath;
 
             if (!File.Exists(csvPath)) return;
 
@@ -71,6 +76,89 @@ namespace PS2toPS4Builder.Core
             string normalized = serial.Replace("-", "_");
             if (_titles.ContainsKey(normalized))
                 return _titles[normalized];
+
+            return null;
+        }
+
+        public static void RegisterTitle(string serial, string title)
+        {
+            if (string.IsNullOrEmpty(serial) || string.IsNullOrEmpty(title)) return;
+            if (_titles == null) _titles = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            if (_titleToSerial == null) _titleToSerial = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+
+            _titles[serial] = title;
+            string clean = CleanTitle(title);
+            if (!string.IsNullOrEmpty(clean) && !_titleToSerial.ContainsKey(clean))
+            {
+                _titleToSerial[clean] = serial;
+            }
+
+            if (!string.IsNullOrEmpty(_savedCsvPath) && File.Exists(_savedCsvPath))
+            {
+                try
+                {
+                    File.AppendAllText(_savedCsvPath, string.Format("{0};{1}\r\n", serial, title), Encoding.Default);
+                }
+                catch { }
+            }
+        }
+
+        public static async Task<string> FetchTitleOnlineAsync(string serial)
+        {
+            if (string.IsNullOrEmpty(serial)) return null;
+
+            // Formatear serial estándar: XXXX-YYYYY
+            string cleanSerial = serial.Trim().ToUpper();
+            Match m = Regex.Match(cleanSerial, @"([A-Z]{4})[-_]?(\d{3})\.?(\d{2})");
+            if (m.Success)
+            {
+                cleanSerial = string.Format("{0}-{1}{2}", m.Groups[1].Value, m.Groups[2].Value, m.Groups[3].Value);
+            }
+
+            // Consultar PsxDataCenter
+            string url = string.Format("https://psxdatacenter.com/psx2/games2/{0}.html", cleanSerial);
+            try
+            {
+                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
+                req.Timeout = 5000;
+                req.ReadWriteTimeout = 5000;
+                req.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) PS2toPS4Builder";
+
+                using (WebResponse resp = await Task.Factory.FromAsync<WebResponse>(req.BeginGetResponse, req.EndGetResponse, null))
+                using (Stream stream = resp.GetResponseStream())
+                using (StreamReader reader = new StreamReader(stream, Encoding.GetEncoding("windows-1252")))
+                {
+                    string html = await reader.ReadToEndAsync();
+                    if (!string.IsNullOrEmpty(html))
+                    {
+                        // 1. Probar etiqueta <title>
+                        Match tm = Regex.Match(html, @"<title>\s*(.*?)\s*(?:-\s*\((?:PAL|NTSC-U|NTSC-J|NTSC-K)\))?\s*</title>", RegexOptions.IgnoreCase);
+                        string rawTitle = tm.Success ? tm.Groups[1].Value.Trim() : null;
+
+                        // 2. Si no, probar OFFICIAL TITLE
+                        if (string.IsNullOrEmpty(rawTitle))
+                        {
+                            Match om = Regex.Match(html, @"OFFICIAL TITLE.*?&nbsp;(.*?)</td", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+                            if (om.Success) rawTitle = om.Groups[1].Value.Trim();
+                        }
+
+                        if (!string.IsNullOrEmpty(rawTitle))
+                        {
+                            rawTitle = WebUtility.HtmlDecode(rawTitle).Trim();
+                            // Si está en mayúsculas completas, formatear a título legible
+                            if (rawTitle.Equals(rawTitle.ToUpperInvariant()) && rawTitle.Length > 4)
+                            {
+                                TextInfo ti = CultureInfo.InvariantCulture.TextInfo;
+                                rawTitle = ti.ToTitleCase(rawTitle.ToLowerInvariant());
+                            }
+
+                            RegisterTitle(cleanSerial, rawTitle);
+                            return rawTitle;
+                        }
+                    }
+                }
+            }
+            catch { }
 
             return null;
         }

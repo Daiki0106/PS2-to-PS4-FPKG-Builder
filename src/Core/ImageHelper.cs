@@ -40,63 +40,28 @@ namespace PS2toPS4Builder.Core
         }
 
         /// <summary>
-        /// Convierte una carátula vertical de PS2 en un icono cuadrado 512x512
-        /// con fondo ambiental difuminado estilo PlayStation 4, sin deformar la imagen.
+        /// Convierte una imagen en un icono cuadrado 512x512 para PS4 (icon0.png).
+        /// Admite modos: Llenar Cuadrado (Estilo PS4 Oficial sin bandas ni duplicados), Fondo Negro Puro o Ambiental.
         /// </summary>
-        public static void CreateSquareIconWithAmbientBackground(string sourcePath, string destPath)
+        public static void CreateSquareIcon(string sourcePath, string destPath, IconCropStyle style = IconCropStyle.FillSquare)
         {
             if (!File.Exists(sourcePath)) return;
 
             using (Image src = Image.FromFile(sourcePath))
             {
-                using (Bitmap target = new Bitmap(512, 512, PixelFormat.Format24bppRgb))
+                using (Bitmap iconBmp = StudioImageProcessor.CreateSquareIcon(src, 512, style))
                 {
-                    using (Graphics g = Graphics.FromImage(target))
-                    {
-                        g.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                        g.SmoothingMode = SmoothingMode.HighQuality;
-                        g.PixelOffsetMode = PixelOffsetMode.HighQuality;
-                        g.CompositingQuality = CompositingQuality.HighQuality;
-
-                        // 1. Fondo difuminado / oscurecido ocupando todo el cuadrado
-                        g.DrawImage(src, new Rectangle(-20, -20, 552, 552));
-                        using (Brush darkTint = new SolidBrush(Color.FromArgb(160, 10, 12, 18)))
-                        {
-                            g.FillRectangle(darkTint, 0, 0, 512, 512);
-                        }
-
-                        // 2. Carátula centrada respetando proporción original
-                        float aspect = (float)src.Width / src.Height;
-                        int fitHeight = 490;
-                        int fitWidth = (int)(fitHeight * aspect);
-                        if (fitWidth > 490)
-                        {
-                            fitWidth = 490;
-                            fitHeight = (int)(fitWidth / aspect);
-                        }
-
-                        int x = (512 - fitWidth) / 2;
-                        int y = (512 - fitHeight) / 2;
-
-                        // Sombra sutil detrás de la carátula
-                        using (Brush shadow = new SolidBrush(Color.FromArgb(120, 0, 0, 0)))
-                        {
-                            g.FillRectangle(shadow, x - 4, y - 4, fitWidth + 8, fitHeight + 8);
-                        }
-
-                        // Dibujar carátula nítida
-                        g.DrawImage(src, new Rectangle(x, y, fitWidth, fitHeight));
-
-                        // Borde fino elegante
-                        using (Pen borderPen = new Pen(Color.FromArgb(60, 255, 255, 255), 1))
-                        {
-                            g.DrawRectangle(borderPen, x, y, fitWidth, fitHeight);
-                        }
-                    }
-
-                    target.Save(destPath, ImageFormat.Png);
+                    StudioImageProcessor.SavePng24(iconBmp, destPath);
                 }
             }
+        }
+
+        /// <summary>
+        /// Mantiene compatibilidad: genera icono cuadrado con fondo ambiental difuminado.
+        /// </summary>
+        public static void CreateSquareIconWithAmbientBackground(string sourcePath, string destPath)
+        {
+            CreateSquareIcon(sourcePath, destPath, IconCropStyle.FitAmbient);
         }
 
         /// <summary>

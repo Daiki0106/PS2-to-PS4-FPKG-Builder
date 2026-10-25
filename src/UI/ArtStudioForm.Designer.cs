@@ -27,6 +27,7 @@ namespace PS2toPS4Builder.UI
             this.grpPreviews = new System.Windows.Forms.GroupBox();
             this.pnlIconBox = new System.Windows.Forms.Panel();
             this.lblIconTitle = new System.Windows.Forms.Label();
+            this.cmbIconStyle = new System.Windows.Forms.ComboBox();
             this.picIcon = new System.Windows.Forms.PictureBox();
             this.btnSaveIcon = new System.Windows.Forms.Button();
 
@@ -107,20 +108,36 @@ namespace PS2toPS4Builder.UI
             this.pnlIconBox.Location = new System.Drawing.Point(12, 22);
             this.pnlIconBox.Size = new System.Drawing.Size(235, 280);
             this.pnlIconBox.Controls.Add(this.lblIconTitle);
+            this.pnlIconBox.Controls.Add(this.cmbIconStyle);
             this.pnlIconBox.Controls.Add(this.picIcon);
             this.pnlIconBox.Controls.Add(this.btnSaveIcon);
 
             // lblIconTitle
-            this.lblIconTitle.Text = "Cuadrado 512x512 (Icono / Portada)";
+            this.lblIconTitle.Text = "Cuadrado 512x512 (Icono PS4)";
             this.lblIconTitle.Location = new System.Drawing.Point(0, 0);
-            this.lblIconTitle.Size = new System.Drawing.Size(235, 20);
+            this.lblIconTitle.Size = new System.Drawing.Size(235, 18);
             this.lblIconTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblIconTitle.ForeColor = System.Drawing.Color.LightSkyBlue;
             this.lblIconTitle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
 
-            // picIcon (200 x 200)
-            this.picIcon.Location = new System.Drawing.Point(17, 25);
-            this.picIcon.Size = new System.Drawing.Size(200, 200);
+            // cmbIconStyle
+            this.cmbIconStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbIconStyle.Location = new System.Drawing.Point(17, 20);
+            this.cmbIconStyle.Size = new System.Drawing.Size(200, 23);
+            this.cmbIconStyle.BackColor = System.Drawing.Color.FromArgb(32, 34, 38);
+            this.cmbIconStyle.ForeColor = System.Drawing.Color.White;
+            this.cmbIconStyle.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.cmbIconStyle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbIconStyle.Items.AddRange(new object[] {
+                "✨ Llenar Cuadrado (Estilo PS4)",
+                "⬛ Fondo Negro Puro (Elegante)",
+                "🌫️ Fondo Difuminado (Clásico)"
+            });
+            this.cmbIconStyle.SelectedIndex = 0;
+
+            // picIcon (200 x 185)
+            this.picIcon.Location = new System.Drawing.Point(17, 47);
+            this.picIcon.Size = new System.Drawing.Size(200, 182);
             this.picIcon.BackColor = System.Drawing.Color.FromArgb(20, 20, 22);
             this.picIcon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -247,6 +264,7 @@ namespace PS2toPS4Builder.UI
         private System.Windows.Forms.GroupBox grpPreviews;
         private System.Windows.Forms.Panel pnlIconBox;
         private System.Windows.Forms.Label lblIconTitle;
+        private System.Windows.Forms.ComboBox cmbIconStyle;
         private System.Windows.Forms.PictureBox picIcon;
         private System.Windows.Forms.Button btnSaveIcon;
 

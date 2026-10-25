@@ -464,6 +464,32 @@ namespace PS2toPS4Builder.UI
                     else
                     {
                         LogMessage(string.Format("[INFO] ISO cargada. Serial: {0} -> Title ID: {1}", serial, txtTitleId.Text));
+
+                        // Búsqueda en base de datos online si el serial no estaba en titles.csv local
+                        if (!string.IsNullOrEmpty(serial))
+                        {
+                            Task.Run(async () =>
+                            {
+                                try
+                                {
+                                    string onlineTitle = await TitleDatabase.FetchTitleOnlineAsync(serial);
+                                    if (!string.IsNullOrEmpty(onlineTitle))
+                                    {
+                                        this.BeginInvoke((MethodInvoker)delegate
+                                        {
+                                            if (string.IsNullOrEmpty(txtGameTitle.Text) ||
+                                                txtGameTitle.Text.Equals(fileNameWithoutExt, StringComparison.OrdinalIgnoreCase) ||
+                                                Regex.IsMatch(txtGameTitle.Text.Trim(), @"^[A-Za-z]{4}[-_]?\d{3,5}", RegexOptions.IgnoreCase))
+                                            {
+                                                txtGameTitle.Text = onlineTitle;
+                                                LogMessage(string.Format("[SUCCESS] ¡Título oficial identificado vía online!: \"{0}\" ({1})", onlineTitle, serial));
+                                            }
+                                        });
+                                    }
+                                }
+                                catch { }
+                            });
+                        }
                     }
                 }
 
@@ -841,6 +867,31 @@ namespace PS2toPS4Builder.UI
             {
                 MessageBox.Show("El Title ID debe tener formato CUSAxxxxx (ej: CUSA12345).", "Title ID Invalido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
+            }
+
+            // Validar título del juego visible en la interfaz de PS4
+            string currentGameTitle = txtGameTitle.Text.Trim();
+            if (string.IsNullOrEmpty(currentGameTitle))
+            {
+                MessageBox.Show("Por favor escribe el título del juego para la PS4.", "Título Requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtGameTitle.Focus();
+                return;
+            }
+
+            if (Regex.IsMatch(currentGameTitle, @"^[A-Za-z]{4}[-_]?\d{3,5}(\s*\(.*\))?$", RegexOptions.IgnoreCase))
+            {
+                DialogResult drSerial = MessageBox.Show(
+                    string.Format("El nombre actual del juego es \"{0}\", el cual parece ser solo el código de serie del disco.\n\nEste es el nombre exacto que se mostrará en el menú principal de tu PlayStation 4.\n\n¿Deseas compilar con este código o prefieres escribir el nombre real del juego (ej: Pro Evolution Soccer 2013)?\n\nPresiona 'No' para cancelar y escribir el nombre real.", currentGameTitle),
+                    "Confirmar Nombre del Juego",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (drSerial != DialogResult.Yes)
+                {
+                    txtGameTitle.Focus();
+                    txtGameTitle.SelectAll();
+                    return;
+                }
             }
 
             // 1. Validar si la ISO está truncada / corrupta

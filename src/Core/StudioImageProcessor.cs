@@ -7,6 +7,13 @@ using System.Text.RegularExpressions;
 
 namespace PS2toPS4Builder.Core
 {
+    public enum IconCropStyle
+    {
+        FillSquare = 0,    // Llenar Cuadrado 1:1 (Recorte Proporcional - Estilo Oficial PS4)
+        FitBlack = 1,      // Carátula Centrada (Fondo Negro Puro / Elegante)
+        FitAmbient = 2     // Fondo Ambiental Difuminado (Clásico)
+    }
+
     public static class StudioImageProcessor
     {
         public static string ExtractSerialFromText(string text)
@@ -33,7 +40,7 @@ namespace PS2toPS4Builder.Core
             return "";
         }
 
-        public static Bitmap CreateSquareIcon(Image src, int size = 512, bool useAmbientBackground = true)
+        public static Bitmap CreateSquareIcon(Image src, int size = 512, IconCropStyle style = IconCropStyle.FillSquare)
         {
             Bitmap canvas = new Bitmap(size, size, PixelFormat.Format32bppArgb);
             using (Graphics g = Graphics.FromImage(canvas))
@@ -47,9 +54,54 @@ namespace PS2toPS4Builder.Core
 
                 if (Math.Abs(ratio - 1.0f) < 0.05f)
                 {
+                    // Imagen ya es casi cuadrada: dibujar directa
                     g.DrawImage(src, new Rectangle(0, 0, size, size));
                 }
-                else if (useAmbientBackground)
+                else if (style == IconCropStyle.FillSquare)
+                {
+                    // MODO LLENAR CUADRADO (ESTILO OFICIAL PS4):
+                    // Llena todo el marco 512x512 con la imagen sin barras laterales ni duplicados
+                    float scale = Math.Max((float)size / src.Width, (float)size / src.Height);
+                    int drawW = (int)Math.Ceiling(src.Width * scale);
+                    int drawH = (int)Math.Ceiling(src.Height * scale);
+                    int drawX = (size - drawW) / 2;
+                    int drawY = (size - drawH) / 2;
+
+                    g.DrawImage(src, new Rectangle(drawX, drawY, drawW, drawH));
+                }
+                else if (style == IconCropStyle.FitBlack)
+                {
+                    // MODO CARÁTULA CENTRADA CON FONDO NEGRO PURO (ELEGANTE, SIN DUPLICADOS)
+                    g.Clear(Color.FromArgb(12, 12, 16));
+
+                    int targetW, targetH;
+                    if (ratio > 1.0f)
+                    {
+                        targetW = (int)(size * 0.94f);
+                        targetH = (int)(targetW / ratio);
+                    }
+                    else
+                    {
+                        targetH = (int)(size * 0.94f);
+                        targetW = (int)(targetH * ratio);
+                    }
+
+                    int posX = (size - targetW) / 2;
+                    int posY = (size - targetH) / 2;
+
+                    using (SolidBrush shadow = new SolidBrush(Color.FromArgb(140, 0, 0, 0)))
+                    {
+                        g.FillRectangle(shadow, posX - 3, posY - 2, targetW + 6, targetH + 6);
+                    }
+
+                    g.DrawImage(src, new Rectangle(posX, posY, targetW, targetH));
+
+                    using (Pen borderPen = new Pen(Color.FromArgb(50, 255, 255, 255), 1))
+                    {
+                        g.DrawRectangle(borderPen, posX, posY, targetW, targetH);
+                    }
+                }
+                else // FitAmbient
                 {
                     using (Bitmap blurred = ResizeBitmap(src, 64, 64))
                     {
@@ -82,26 +134,13 @@ namespace PS2toPS4Builder.Core
 
                     g.DrawImage(src, new Rectangle(posX, posY, targetW, targetH));
                 }
-                else
-                {
-                    int targetW, targetH;
-                    if (ratio > 1.0f)
-                    {
-                        targetW = size;
-                        targetH = (int)(size / ratio);
-                    }
-                    else
-                    {
-                        targetH = size;
-                        targetW = (int)(size * ratio);
-                    }
-                    int posX = (size - targetW) / 2;
-                    int posY = (size - targetH) / 2;
-                    g.Clear(Color.FromArgb(20, 20, 20));
-                    g.DrawImage(src, new Rectangle(posX, posY, targetW, targetH));
-                }
             }
             return canvas;
+        }
+
+        public static Bitmap CreateSquareIcon(Image src, int size, bool useAmbientBackground)
+        {
+            return CreateSquareIcon(src, size, useAmbientBackground ? IconCropStyle.FitAmbient : IconCropStyle.FitBlack);
         }
 
         public static Bitmap CreateWidescreenBackground(Image src, int width = 1920, int height = 1080)
