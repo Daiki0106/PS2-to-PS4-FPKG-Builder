@@ -370,7 +370,7 @@ namespace PS2toPS4Builder.UI
 
             try
             {
-                StudioImageProcessor.SavePng32(_iconBitmap, targetPath);
+                StudioImageProcessor.SavePng24(_iconBitmap, targetPath);
                 SavedIconPath = targetPath;
                 SavedArtwork = true;
                 lblStatus.Text = "¡Guardado exitoso: " + fileName + " (512x512)!";
@@ -430,7 +430,7 @@ namespace PS2toPS4Builder.UI
                 string iconPath = Path.Combine(folder, iconName);
                 string bgPath = Path.Combine(folder, bgName);
 
-                StudioImageProcessor.SavePng32(_iconBitmap, iconPath);
+                StudioImageProcessor.SavePng24(_iconBitmap, iconPath);
                 StudioImageProcessor.SavePng24(_bgBitmap, bgPath);
 
                 SavedIconPath = iconPath;

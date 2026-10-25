@@ -179,7 +179,8 @@ namespace PS2toPS4Builder.Core
 
         public static void SavePng32(Bitmap bmp, string path)
         {
-            bmp.Save(path, ImageFormat.Png);
+            // Siempre guardar en 24-bit RGB (Color Type 2) exigido por el compilador orbis-pub-cmd de PS4
+            SavePng24(bmp, path);
         }
     }
 }

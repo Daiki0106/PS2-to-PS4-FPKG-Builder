@@ -20,15 +20,8 @@ namespace PS2toPS4Builder.Core
 
             using (Image src = Image.FromFile(sourcePath))
             {
-                FileInfo fi = new FileInfo(sourcePath);
-                if (src.Width == targetWidth && src.Height == targetHeight && fi.Length < 1000000 && Path.GetExtension(sourcePath).ToLower() == ".png")
-                {
-                    File.Copy(sourcePath, destPath, true);
-                    return;
-                }
-
-                PixelFormat format = Image.IsAlphaPixelFormat(src.PixelFormat) ? PixelFormat.Format32bppArgb : PixelFormat.Format24bppRgb;
-                using (Bitmap target = new Bitmap(targetWidth, targetHeight, format))
+                // Sony orbis-pub-cmd exige estrictamente PNG en formato 24-bit RGB (Color Type 2, sin canal alfa)
+                using (Bitmap target = new Bitmap(targetWidth, targetHeight, PixelFormat.Format24bppRgb))
                 {
                     using (Graphics g = Graphics.FromImage(target))
                     {
@@ -36,15 +29,7 @@ namespace PS2toPS4Builder.Core
                         g.SmoothingMode = SmoothingMode.HighQuality;
                         g.PixelOffsetMode = PixelOffsetMode.HighQuality;
                         g.CompositingQuality = CompositingQuality.HighQuality;
-
-                        if (!Image.IsAlphaPixelFormat(src.PixelFormat))
-                        {
-                            g.Clear(Color.Black);
-                        }
-                        else
-                        {
-                            g.Clear(Color.Transparent);
-                        }
+                        g.Clear(Color.Black);
 
                         g.DrawImage(src, new Rectangle(0, 0, targetWidth, targetHeight));
                     }
