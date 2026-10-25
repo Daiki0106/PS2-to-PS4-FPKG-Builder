@@ -12,6 +12,7 @@ namespace PS2toPS4Builder.Core
         public string GameTitle;
         public string TitleId;
         public string ContentId;
+        public string Ps2Serial;
         public string IconPath;
         public string BackgroundPath;
         public bool Widescreen;
@@ -28,6 +29,7 @@ namespace PS2toPS4Builder.Core
             GameTitle = "";
             TitleId = "CUSA00001";
             ContentId = "";
+            Ps2Serial = "";
             IconPath = "";
             BackgroundPath = "";
             Widescreen = false;
@@ -145,7 +147,8 @@ namespace PS2toPS4Builder.Core
 
                 // 5. Generar archivo config-emu-ps4.txt
                 string configPath = Path.Combine(tempDir, "config-emu-ps4.txt");
-                EmulatorConfig.GenerateConfigFile(configPath, options.Widescreen, options.FastLoad, options.CustomConfig);
+                bool hasLua = !string.IsNullOrEmpty(options.LuaScriptPath) && File.Exists(options.LuaScriptPath);
+                EmulatorConfig.GenerateConfigFile(configPath, options.Widescreen, options.FastLoad, options.CustomConfig, options.Ps2Serial, hasLua);
                 TriggerLog("[INFO] Configuracion del emulador generada.");
 
                 // 5b. Copiar script Lua si existe

@@ -879,6 +879,7 @@ namespace PS2toPS4Builder.UI
             options.IsoPath = txtIsoPath.Text;
             options.GameTitle = txtGameTitle.Text.Trim();
             options.TitleId = titleId;
+            options.Ps2Serial = txtSerial.Text.Trim();
             options.ContentId = contentId;
             options.IconPath = txtIconPath.Text;
             options.BackgroundPath = txtPicPath.Text;
